@@ -1,24 +1,47 @@
 
 /**
- * Write a description of class ProblemRNA here.
+ * Reversing the DNA string in reserve
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Alex 
+ * @1.0
  */
 public class ProblemREVC {
-    public static void main() {
+    public static void main(String[] args) {
         // replace this string with the one from Project Rosalind
         final String inputDNA = "AAAACCCGGT";
+        
+        // compute the reverse complement
         final String output = reverseComplement(inputDNA);
-        // you can copy and paste from the terminal window into 
-        //   Project Rosalind to check your answer
+        
+        // print the result for Rosalind
         System.out.println(output);
     }
         
-    // This should take the given string and return a String 
-    //   where As and Ts are swapped, Cs and Gs are swapped, 
-    //   and is reversed. 
+    // Returns the reverse complement of a DNA string
     private static String reverseComplement(String dnaString) {
-        return "ACCGGGTTTT";
+        StringBuilder complement = new StringBuilder();
+        
+        // first, compute the complement
+        for (int i = 0; i < dnaString.length(); i++) {
+            char nucleotide = dnaString.charAt(i);
+            switch (nucleotide) {
+                case 'A':
+                    complement.append('T');
+                    break;
+                case 'T':
+                    complement.append('A');
+                    break;
+                case 'C':
+                    complement.append('G');
+                    break;
+                case 'G':
+                    complement.append('C');
+                    break;
+                default:
+                    throw new IllegalArgumentException("Invalid nucleotide: " + nucleotide);
+            }
+        }
+        // reverse the complement to get the reverse complement
+        return complement.reverse().toString();
     }    
 }
