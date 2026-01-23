@@ -1,22 +1,23 @@
 
 /**
- * @author (your name)
- * @version (a version number or a date)
+ * @Alex
+ * @1.0
  */
 public class ProblemRNA
 {
-    public static void main() {
+    public static void main(String[] args) {
         // replace this string with the one from Project Rosalind
         final String inputDNA = "GATGGAACTTGACTACGTAAATT";
+        
+        // transcribe DNA to RNA
         final String output = transcribeDNAtoRNA(inputDNA);
-        // you can copy and paste from the terminal window into 
-        //   Project Rosalind to check your answer
+        
+        // print the result for Rosalind
         System.out.println(output);
     }
         
-    // This should take the given string and return a string
-    //   that replaces 'T' with 'U'
+    // Takes a DNA string and replaces all 'T' with 'U' to produce RNA
     private static String transcribeDNAtoRNA(String dnaString) {
-        return "GAUGGAACUUGACUACGUAAAUU";
+        return dnaString.replace('T', 'U');
     }    
 }
